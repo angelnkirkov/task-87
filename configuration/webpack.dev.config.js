@@ -1,20 +1,20 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { merge } = require('webpack-merge');
-
-const webpackConfiguration = require('../webpack.config');
-const environment = require('./environment');
+const { merge } = require("webpack-merge");
+const R = require("ramda");
+const webpackConfiguration = require("../webpack.config");
+const environment = require("./environment");
 
 module.exports = merge(webpackConfiguration, {
-  mode: 'development',
+  mode: "development",
 
   /* Manage source maps generation process */
-  devtool: 'eval-source-map',
+  devtool: "eval-source-map",
 
   /* Development Server Configuration */
   devServer: {
     contentBase: environment.paths.output,
     watchContentBase: true,
-    publicPath: '/',
+    publicPath: "/",
     open: true,
     historyApiFallback: true,
     compress: true,
